@@ -8,16 +8,25 @@ class SimpsonsContainer extends React.Component {
             character: null,
 
           
-        };
+        }
 
+    
+    
+    
 
     async componentDidMount() {
-        const url = "https://thesimpsonsquoteapi.glitch.me/quotes";
+        const url = 'https://thesimpsonsquoteapi.glitch.me/quotes'
+
         const response = await fetch(url);
         const data = await response.json();
         this.setState({character: data[0], loading: false})
-            
-        }
+        };
+
+       refreshPage() {
+           window.location.reload(true);
+       }
+           
+       //Currently working on getting the page it update either using setState or refreshing the page
     
 
     render() { 
@@ -31,8 +40,10 @@ class SimpsonsContainer extends React.Component {
             ) : (
               <div>
                 <div>{this.state.character.character}</div>
-                <img src= {this.state.character.image}/>
+                <img alt="Character" src={this.state.character.image} />
                 <div>{this.state.character.quote}</div>
+                <button type='button' onClick = {refreshPage}>Click to reload!</button>
+                
               </div>
             )}
           </div>
