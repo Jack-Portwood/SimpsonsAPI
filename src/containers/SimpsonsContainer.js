@@ -1,39 +1,46 @@
 import React from 'react';
 
+
+
 class SimpsonsContainer extends React.Component {
-    constructor(props){
-        super(props);
-        this.state = {
-          character: []
+        state = {
+            loading: true,
+            character: null,
+
+          
         };
+
+
+    async componentDidMount() {
+        const url = "https://thesimpsonsquoteapi.glitch.me/quotes";
+        const response = await fetch(url);
+        const data = await response.json();
+        this.setState({character: data[0], loading: false})
+            
+        }
     
 
-        
-    }
-
-    componentDidMount(){
-        const url = "https://thesimpsonsquoteapi.glitch.me/quotes"
-;
-
-        fetch(url)
-        .then(res => res.json())
-        .then((character)=>{
-            this.setState({character: character})
-        .catch(err=> console.error);
-        })
-
-}
     render() { 
 
-        return(
-        <div>
-        <h1>The Simpson Quote Generator ! </h1>
-        <h2>thank fuck for that</h2>
-        </div>
-
+        
+        
+        return (
+          <div>
+            {this.state.loading || !this.state.character ? (
+              <div> loading....</div>
+            ) : (
+              <div>
+                <div>{this.state.character.character}</div>
+                <div>{this.state.character.image}</div>
+                <div>{this.state.character.quote}</div>
+              </div>
+            )}
+          </div>
         );
     }
 }
+
+
 
 
 export default SimpsonsContainer;
