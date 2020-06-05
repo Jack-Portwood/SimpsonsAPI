@@ -31,7 +31,7 @@ class SimpsonsContainer extends React.Component {
             ) : (
               <div>
                 <div>{this.state.character.character}</div>
-                <div>{this.state.character.image}</div>
+                <img src= {this.state.character.image}/>
                 <div>{this.state.character.quote}</div>
               </div>
             )}
