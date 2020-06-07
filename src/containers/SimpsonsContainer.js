@@ -24,10 +24,10 @@ class SimpsonsContainer extends React.Component {
 
         };
 
-        handleClick = (response) => {
+        handleClick = () => {
             this.setState({character:null});
         }
-       //Currently working on getting the page it update either using setState or refreshing the page
+       //Button works but does not return new character hits loading.
     
     
     render() { 
