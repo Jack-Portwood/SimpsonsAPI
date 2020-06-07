@@ -3,32 +3,33 @@ import React from 'react';
 
 
 class SimpsonsContainer extends React.Component {
-        state = {
+    constructor(props){
+        super(props)
+    
+        this.state = {
             loading: true,
             character: null,
 
           
         }
-
+        this.handClick = this.handleClick.bind(this);
+    }
     
-    
-    
-
-    async componentDidMount() {
+        async componentDidMount() {
         const url = 'https://thesimpsonsquoteapi.glitch.me/quotes'
 
         const response = await fetch(url);
         const data = await response.json();
         this.setState({character: data[0], loading: false})
+
         };
 
-       refreshPage() {
-           window.location.reload(true);
-       }
-           
+        handleClick = (response) => {
+            this.setState({character:null});
+        }
        //Currently working on getting the page it update either using setState or refreshing the page
     
-
+    
     render() { 
 
         
@@ -36,13 +37,13 @@ class SimpsonsContainer extends React.Component {
         return (
           <div>
             {this.state.loading || !this.state.character ? (
-              <div> loading....</div>
+              <div> Why YOU Little....</div>
             ) : (
               <div>
                 <div>{this.state.character.character}</div>
                 <img alt="Character" src={this.state.character.image} />
                 <div>{this.state.character.quote}</div>
-                <button type='button' onClick = {refreshPage}>Click to reload!</button>
+                <button type='button' onClick= {this.handleClick}>Click to reload!</button>
                 
               </div>
             )}
