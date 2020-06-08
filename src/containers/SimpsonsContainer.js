@@ -7,27 +7,51 @@ class SimpsonsContainer extends React.Component {
         super(props)
     
         this.state = {
-            loading: true,
-            character: null,
-
-          
-        }
+          character: [],
+          loading: true,
+        };
         this.handClick = this.handleClick.bind(this);
     }
     
-        async componentDidMount() {
+        componentDidMount() {
         const url = 'https://thesimpsonsquoteapi.glitch.me/quotes'
+    
+        fetch(url)
+        .then(res => res.json())
+        .then(data => this.setState({character: data[0], loading: false}))
+        .catch(err => console.error)
+    };
+        //    const url = 'https://restcountries.eu/rest/v2/all';
 
-        const response = await fetch(url);
-        const data = await response.json();
-        this.setState({character: data[0], loading: false})
+//     fetch(url)
+//       .then(res => res.json())
+//       .then(countries => this.setState({ countries: countries }))
+//       .catch(err => console.error);
+//   }
 
-        };
+
+
+
+
+        
+
+        secondFetch = () => {
+            const url = 'https://thesimpsonsquoteapi.glitch.me/quotes'
+            fetch(url)
+             .then((res) => res.json())
+             .then((data) =>
+               this.setState({ character: data[0], loading: false })
+             )
+             .catch((err) => console.error);
+
+        }
+
+
 
         handleClick = () => {
-            this.setState({character:null});
-        }
-       //Button works but does not return new character hits loading.
+         this.secondFetch()
+     }
+         //Button works but does not return new character hits loading.
     
     
     render() { 
