@@ -14,20 +14,14 @@ class SimpsonsContainer extends React.Component {
     }
     
         componentDidMount() {
-        const url = 'https://thesimpsonsquoteapi.glitch.me/quotes'
+        const url = "https://thesimpsonsquoteapi.glitch.me/quotes";
     
         fetch(url)
         .then(res => res.json())
         .then(data => this.setState({character: data[0], loading: false}))
         .catch(err => console.error)
     };
-        //    const url = 'https://restcountries.eu/rest/v2/all';
-
-//     fetch(url)
-//       .then(res => res.json())
-//       .then(countries => this.setState({ countries: countries }))
-//       .catch(err => console.error);
-//   }
+        
 
 
 
@@ -36,7 +30,7 @@ class SimpsonsContainer extends React.Component {
         
 
         secondFetch = () => {
-            const url = 'https://thesimpsonsquoteapi.glitch.me/quotes'
+            const url = "https://thesimpsonsquoteapi.glitch.me/quotes";
             fetch(url)
              .then((res) => res.json())
              .then((data) =>
@@ -51,8 +45,7 @@ class SimpsonsContainer extends React.Component {
         handleClick = () => {
          this.secondFetch()
      }
-         //Button works but does not return new character hits loading.
-    
+         
     
     render() { 
 
@@ -64,10 +57,10 @@ class SimpsonsContainer extends React.Component {
               <div> Why YOU Little....</div>
             ) : (
               <div>
-                <div>{this.state.character.character}</div>
-                <img alt="Character" src={this.state.character.image} />
-                <div>{this.state.character.quote}</div>
-                <button type='button' onClick= {this.handleClick}>Click to reload!</button>
+                <div style={CharacterName}>{this.state.character.character}</div>
+                <img style={Image} alt="Character" src={this.state.character.image} />
+                <div style={quote}> {this.state.character.quote}</div>
+                <button style={button} type='button' onClick= {this.handleClick}>Click to reload!</button>
                 
               </div>
             )}
@@ -76,6 +69,29 @@ class SimpsonsContainer extends React.Component {
     }
 }
 
+const CharacterName = {
+  color: "Red",
+  textAlign: "center"
+};
+
+const quote = {
+  color: "Red",
+  textAlign: "center"
+
+};
+
+const button = {
+
+
+}
+
+const Image = {
+  flexGrow:1,
+  justifyContent: "center",
+  alignItems: "center",
+  height: 500,
+  width: null
+};
 
 
 
