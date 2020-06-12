@@ -52,9 +52,9 @@ class SimpsonsContainer extends React.Component {
                 <img alt="Header" className="title" src="https://fontmeme.com/permalink/200612/648dd5356b617ee05828d11de5e46fb7.png" alt="simpsons-font" border="0"/>
                 <img alt="Character" className="image" src={this.state.character.image} />
                 <h2 className="quote"> "{this.state.character.quote}"</h2>
-                <h3 className="name">"{this.state.character.character}." </h3>
+                <h3 className="name"> ~ {this.state.character.character}. </h3>
                 <button type="button" onClick={this.handleClick} className="button">
-                  Click to reload!</button>
+                  ANY KEY</button>
                 <h4>API by Jason Luboff</h4>
               </div>
             )}

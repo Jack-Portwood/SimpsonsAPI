@@ -56,19 +56,28 @@
     
 }
 
+    
 .button {
-    
-    border: 1px solid;
-    border-radius: 100px;
-    padding: 10px 20px;
-    background: rgba(61, 231, 19, 0.867);
-    outline: none;
-    margin: 2px;
-    flex: 1;
-    min-width: 80px;
-    padding-left: 200px;
-    padding-right: 200px ;
-    
+padding-left: 200px;
+  padding-right: 200px;
+  font-size: 24px;
+  text-align: center;
+  cursor: pointer;
+  outline: black;
+  color: #fff;
+  background: rgba(61, 231, 19, 0.867);
+  /* background-color: #4CAF50; */
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+.button:hover {background-color: #3e8e41}
+
+.button:active {
+  background-color:  rgba(61, 231, 19, 0.867);;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
 }
 
 h4{
