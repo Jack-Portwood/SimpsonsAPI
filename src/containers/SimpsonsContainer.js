@@ -49,10 +49,10 @@ class SimpsonsContainer extends React.Component {
               <h5> Why YOU Little....</h5>
             ) : (
               <div>
-                <h1 className="title">The Simpsons Quote Generator</h1>
-                <img alt="Character" src={this.state.character.image} />
-                <h2 className="quote"> " {this.state.character.quote} "</h2>
-                <h3 className="name">{this.state.character.character} </h3>
+                <img alt="Header" className="title" src="https://fontmeme.com/permalink/200612/648dd5356b617ee05828d11de5e46fb7.png" alt="simpsons-font" border="0"/>
+                <img alt="Character" className="image" src={this.state.character.image} />
+                <h2 className="quote"> "{this.state.character.quote}"</h2>
+                <h3 className="name">"{this.state.character.character}." </h3>
                 <button type="button" onClick={this.handleClick} className="button">
                   Click to reload!</button>
                 <h4>API by Jason Luboff</h4>
