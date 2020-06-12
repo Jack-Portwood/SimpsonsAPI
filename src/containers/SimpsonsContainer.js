@@ -11,7 +11,8 @@ class SimpsonsContainer extends React.Component {
           loading: true,
         };
         this.handClick = this.handleClick.bind(this);
-    }
+        
+    };
     
         componentDidMount() {
         const url = "https://thesimpsonsquoteapi.glitch.me/quotes";
@@ -23,12 +24,6 @@ class SimpsonsContainer extends React.Component {
     };
         
 
-
-
-
-
-        
-
         secondFetch = () => {
             const url = "https://thesimpsonsquoteapi.glitch.me/quotes";
             fetch(url)
@@ -38,60 +33,42 @@ class SimpsonsContainer extends React.Component {
              )
              .catch((err) => console.error);
 
-        }
-
-
+    };
 
         handleClick = () => {
          this.secondFetch()
-     }
-         
+     };
+
+             
     
     render() { 
-
-        
-        
+    
         return (
-          <div>
+          <div className="container">
             {this.state.loading || !this.state.character ? (
-              <div> Why YOU Little....</div>
+              <h5> Why YOU Little....</h5>
             ) : (
               <div>
-                <div style={CharacterName}>{this.state.character.character}</div>
-                <img style={Image} alt="Character" src={this.state.character.image} />
-                <div style={quote}> {this.state.character.quote}</div>
-                <button style={button} type='button' onClick= {this.handleClick}>Click to reload!</button>
-                
+                <h1 className="title">The Simpsons Quote Generator</h1>
+                <img alt="Character" src={this.state.character.image} />
+                <h2 className="quote"> " {this.state.character.quote} "</h2>
+                <h3 className="name">{this.state.character.character} </h3>
+                <button type="button" onClick={this.handleClick} className="button">
+                  Click to reload!</button>
+                <h4>API by Jason Luboff</h4>
               </div>
             )}
           </div>
         );
+        
     }
+    
 }
 
-const CharacterName = {
-  color: "Red",
-  textAlign: "center"
-};
-
-const quote = {
-  color: "Red",
-  textAlign: "center"
-
-};
-
-const button = {
 
 
-}
 
-const Image = {
-  flexGrow:1,
-  justifyContent: "center",
-  alignItems: "center",
-  height: 500,
-  width: null
-};
+
 
 
 

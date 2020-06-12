@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import './App.css';
+import './appStyles.css';
 import SimpsonsContainer from './containers/SimpsonsContainer'
 
 
