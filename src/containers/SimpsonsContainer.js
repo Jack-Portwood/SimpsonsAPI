@@ -16,7 +16,6 @@ class SimpsonsContainer extends React.Component {
     
         componentDidMount() {
         const url = "https://thesimpsonsquoteapi.glitch.me/quotes";
-    
         fetch(url)
         .then(res => res.json())
         .then(data => this.setState({character: data[0], loading: false}))
@@ -44,6 +43,7 @@ class SimpsonsContainer extends React.Component {
     render() { 
     
         return (
+        <div className="background">
           <div className="container">
             {this.state.loading || !this.state.character ? (
               <h5> Why YOU Little....</h5>
@@ -59,6 +59,7 @@ class SimpsonsContainer extends React.Component {
               </div>
             )}
           </div>
+        </div>
         );
         
     }
